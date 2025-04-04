@@ -10,3 +10,15 @@ Here is a simple example of output
 
 **IMPORTANT**\
 The team logos are their property and were used only as an example. For this reason, the team logos must be added by yourself, and the program does not support displaying them (only the names are displayed)
+
+## Features
+
+- Custome order of player in damage graph
+- Improved error and exceptions handling
+
+I do not rule out the possibility that I will add more graphics with other statistics someday.
+
+
+## Authors
+
+- @Antos99999 [(Github)](https://www.github.com/Antos999)/[(x.com)](https://x.com/antosss_)
