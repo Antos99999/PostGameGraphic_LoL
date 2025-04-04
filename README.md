@@ -11,6 +11,9 @@ Here is a simple example of output
 **IMPORTANT**\
 The team logos are their property and were used only as an example. For this reason, the team logos must be added by yourself, and the program does not support displaying them (only the names are displayed)
 
+**NOTE**\
+App support only official games (ranked, games with tournametn code). It is recommended that players arrange themselves in the lobby from top to bot - otherwise the damage dealt graph will not be displayed correctly (the graph will still be correct, but the application is currently unable to set a custom display order players, so it is possible that the order of players will be different than top to bot)
+
 ## Features
 
 - Custome order of player in damage graph
