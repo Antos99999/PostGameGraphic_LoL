@@ -18,6 +18,8 @@ App support only official games (ranked, games with tournametn code). It is reco
 The application does not offer much customization, it is only possible to change the background. In order to change the color and/or font style, it is necessary to edit the appropriate values in the code and then compile the code yourself
 
 ## Features
+**NOTE**\
+I do not guarantee that changes will occur
 
 - Custome order of player in damage graph
 - Improved error and exceptions handling
