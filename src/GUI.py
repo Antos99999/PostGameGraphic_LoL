@@ -6,7 +6,7 @@ from GettingInfoFromAPI import *
 import logging
 from CollectingAndCreatingData import CollectData
 
-#function witch create GUI
+#function that creates GUI
 def GUI():
 
     logger = logging.getLogger(__name__)
@@ -18,7 +18,9 @@ def GUI():
         with open('settings.json') as json_data:
             settings = json.load(json_data)
             server = settings['SERVER']
+            api = settings['API']
     except FileNotFoundError:
+        api = ""
         server = "EUNE"
         logger.info("Plik settings.json nie jest utworzony - tworze plik setting.json")
         messagebox.showinfo('Możliwy brakujący plik', 'Nie można otworzyć plik settings.json')
@@ -36,6 +38,7 @@ def GUI():
     Label(m, text='Team 1').grid(row=3, column=0, pady=5, padx=5)
     Label(m, text='Team 2').grid(row=4, column=0, pady=5, padx=5)
     Label(m, text='Wynik (format np 0:0)').grid(row=5, column=0, pady=5, padx=5)
+    Label(m, text='API_KEY').grid(row=6, column=0, pady=5, padx=5)
 
     server_entry = ttk.Combobox(m, values=["EUNE", "EUW"])
     server_entry.grid(row=1, column=1, pady=5, padx=5)
@@ -53,13 +56,18 @@ def GUI():
     team2_entry.grid(row=4, column=1, pady=5, padx=5)
     result_entry = tk.Entry(m)
     result_entry.grid(row=5, column=1, pady=5, padx=5)
+    api_key_entry = tk.Entry(m)
+    api_key_entry.grid(row=6, column=1, pady=5, padx=5)
+
+    if api != "":
+        api_key_entry.insert(api)
 
     save_api = tk.Button(
         m,
         text='Save',
-        command=lambda: [saveSettings(server_entry.get()), updateMatchID(), CollectData(matchID,team1_entry.get(),team2_entry.get(),result_entry.get()), m.destroy()]#after press button call saveSettings function in file saveSettings
+        command=lambda: [saveSettings(server_entry.get(),api_key_entry.get()), updateMatchID(), CollectData(matchID,team1_entry.get(),team2_entry.get(),result_entry.get()), m.destroy()]#after press button call saveSettings function in file saveSettings
     )
-    save_api.grid(row=6, column=0, columnspan=2, pady=10)
+    save_api.grid(row=7, column=0, columnspan=2, pady=10)
 
     logger.info("Poprawnie udało się zapisać dane do pliku settings.json")
 
